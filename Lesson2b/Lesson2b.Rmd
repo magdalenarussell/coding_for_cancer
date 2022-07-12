@@ -1,0 +1,70 @@
+---
+title: "Lesson 2b In-class exercises"
+author: "Magdalena Russell"
+date: '2022-06-15'
+output: html_document
+---
+
+__Under each heading below, type your code and run it. Feel free to add notes and comments to help you learn.__ 
+
+
+# Using a function: Rounding numbers
+
+```{r}
+## [Round 3.14 using the round() function]
+
+```
+
+What is the answer?
+
+
+# Using a function with more arguments
+
+```{r}
+## [add the digits parameter to your rounding code above and round to 1 digit]
+
+
+```
+
+
+# Getting help with the `round()` function
+
+```{r}
+?round
+#run me
+```
+
+What happened when you ran the above code chunk?
+
+
+
+# Using round with complete argument labels
+
+```{r}
+# [fill in the values we used above after the equals]
+round(x = , digits = ) # edit me
+```
+
+Did you get the same answer as before? Or different?
+
+
+
+# Switching the order of arguments
+
+```{r}
+# [copy your code from the last code chunk and switch the positions of the parameters, such that x = 3.14 is after the parenthesis]
+
+```
+
+What happened?
+
+
+
+# Removing argument labels
+
+```{r}
+# [copy your round statement from above and delete the labels]
+
+```
+
+Now what happened? Did you get the same answer as before?

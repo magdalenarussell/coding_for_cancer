@@ -1,0 +1,39 @@
+---
+title: "Lesson 5a Challenge problems"
+author: "Magdalena Russell"
+date: '2022-06-15'
+output: html_document
+---
+
+All exercises use the clinical object we created in the readings:
+
+```{r}
+# install.packages("tidyverse")
+library(tidyverse) ## if this isn't working, be sure to run the above (uncomment first)
+
+# Load the data
+clinical <- read.csv("data/clinical.csv")
+```
+
+Create a new object from clinical called demographics_BLCA that includes only the height, bmi, gender, ethnicity, and race.
+
+```{r}
+# your code here...
+
+```
+
+Code as many ways to select the columns year_of_diagnosis, paper_Tobacco.smoking.history, pack_years_smoked, cigarettes_per_day from the clinical object
+
+```{r}
+# your code here...
+
+```
+
+Create a new object from clinical called demographics_BLCA_current_smokers that includes only the height, bmi, gender, ethnicity, and race. However, restrict data such that only current smokers are included (hint: relevant column is called Tobacco.smoking.history).
+
+```{r}
+# your code here...
+
+```
+
+

@@ -20,8 +20,7 @@ Alternatively, create a different folder and change path below accordingly
 
 ```{r}
 download.file("https://ndownloader.figshare.com/files/29126022", "data/subtypes.csv")
-d_data <- read.csv("data/subtypes.csv",
-                  col_types = cols(BRCA_subtype = col_character()))
+d_data <- read.csv("data/subtypes.csv")
 ```
 
 ## start analysis

@@ -16,9 +16,7 @@ library("tidyverse")
 
 ```{r}
 download.file("https://ndownloader.figshare.com/files/29228802", "data/coexpression.csv")
-d_data <- read.csv("data/coexpression.csv",
-                  col_types = cols(TP53_substitution = col_character(),
-                                   TP53_substitution_category = col_character()))
+d_data <- read.csv("data/coexpression.csv")
 ```
 
 # load TP53 and RUNX target info

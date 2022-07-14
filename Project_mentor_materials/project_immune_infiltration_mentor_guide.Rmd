@@ -1,0 +1,58 @@
+---
+title: "Cancer Immunology"
+author: "EXAMPLE"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Cancer immunology--tumor-infiltrating lymphocytes 
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+students have created the 'data' folder during the lessons
+change path if new directory is created
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/30290958", "data/survival.csv")
+d_data <- read.csv("data/survival.csv") 
+```
+
+## start analysis
+
+Example analysis 1 
+
+Notes:
+* students would have created the "plots" directory in class
+* alternatively, create a different folder and change path below accordingly
+
+```{r}
+p_scatter <- d_data %>%
+  filter(sample_type == "Primary Tumor") %>% 
+  filter(project_id == "TCGA-LUAD") %>% 
+  ggplot(aes(x=immune.score, y=B2M_expr)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method='lm', formula= y~x) +
+  theme_classic()
+
+ggsave("plots/scatter_immunescore_b2m.pdf", p_scatter)
+```
+
+Example analysis 2: Is granzyme b expression correlated with CD8 infiltration?
+
+```{r}
+p_scatter <- d_data %>%
+  filter(sample_type == "Primary Tumor") %>%
+  filter(project_id == "TCGA-LUAD") %>% 
+  ggplot(aes(x=CD8.Tcell, y=GZMB_expr)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = 'lm', formula = y~x) +
+  theme_classic() 
+
+ggsave("plots/scatter_cd8_gzmb.pdf"), p_scatter)
+``` 
+

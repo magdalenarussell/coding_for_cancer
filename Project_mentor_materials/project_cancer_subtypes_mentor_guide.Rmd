@@ -1,0 +1,71 @@
+---
+title: "Cancer Molecular Subtypes"
+author: "EXAMPLE"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Cancer Molecular Subtypes
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+
+Students would have created the "data" directory in class
+Alternatively, create a different folder and change path below accordingly
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/29126022", "data/subtypes.csv")
+d_data <- read.csv("data/subtypes.csv",
+                  col_types = cols(BRCA_subtype = col_character()))
+```
+
+## start analysis
+
+```{r}
+d_plot <- d_data %>% 
+         filter(project_id == "TCGA-BRCA") %>% 
+         filter(sample_type == "Primary Tumor") %>% 
+         filter(!is.na(BRCA_subtype)) %>% 
+         pivot_longer(cols = c("ERBB2_expr", "ESR1_expr", "PGR_expr", "MKI67_expr"), 
+                      names_to = "gene",
+                      values_to = "expr") %>% 
+         select(barcode, gene, expr, BRCA_subtype)
+```
+
+pivot_longer() was not covered in class, mentor may choose to briefly cover this function, or guide the students through creating multiple simpler plots
+
+```{r}
+p <- ggplot(data = d_plot, mapping = aes(x = BRCA_subtype, y = log10(expr), fill = gene)) + # could alternatively use mutate() in d_plot
+    geom_boxplot() +
+    theme_classic() +
+    xlab("BRCA subtype") +
+    ylab ("log10[gene expression (FPKM)]") +
+    scale_fill_manual(values=c("#7fc97f", "#beaed4", "#fdc086", "#ffff99"), 
+                      name="Gene",
+                      breaks=c("ERBB2_expr", "ESR1_expr", "PGR_expr", "MKI67_expr"),
+                      labels=c("ERBB2", "ESR1", "PGR", "MKI67"))
+```
+
+Notes: (from https://www.breastcancer.org/symptoms/types/molecular-subtypes)
+* Luminal A breast cancer is hormone-receptor positive (estrogen-receptor and/or progesterone-receptor positive), HER2 negative, and has low levels of the protein Ki-67, which helps control how fast cancer cells grow. Luminal A cancers are low-grade, tend to grow slowly and have the best prognosis.
+* Luminal B breast cancer is hormone-receptor positive (estrogen-receptor and/or progesterone-receptor positive), and either HER2 positive or HER2 negative with high levels of Ki-67. Luminal B cancers generally grow slightly faster than luminal A cancers and their prognosis is slightly worse.
+* Triple-negative/basal-like breast cancer is hormone-receptor negative (estrogen-receptor and progesterone-receptor negative) and HER2 negative. This type of cancer is more common in women with BRCA1 gene mutations. Researchers aren’t sure why, but this type of cancer also is more common among younger and Black women. Read more about Triple-Negative Breast Cancer.
+* HER2-enriched breast cancer is hormone-receptor negative (estrogen-receptor and progesterone-receptor negative) and HER2 positive. HER2-enriched cancers tend to grow faster than luminal cancers and can have a worse prognosis, but they are often successfully treated with targeted therapies aimed at the HER2 protein, such as Enhertu (chemical name: fam-trastuzumab-deruxtecan-nxki), Herceptin (chemical name: trastuzumab), Perjeta (chemical name: pertuzumab), Tykerb (chemical name: lapatinib), Nerlynx (chemical name: neratinib), and Kadcyla (chemical name: T-DM1 or ado-trastuzumab emtansine).
+* Normal-like breast cancer is similar to luminal A disease: hormone-receptor positive (estrogen-receptor and/or progesterone-receptor positive), HER2 negative, and has low levels of the protein Ki-67, which helps control how fast cancer cells grow. Still, while normal-like breast cancer has a good prognosis, its prognosis is slightly worse than luminal A cancer’s prognosis.
+
+# save plot to "plots" directory
+
+Notes:
+* students would have created the "plots" directory in class
+* alternatively, create a different folder and change path below accordingly
+
+```{r}
+ggsave(filename = "plots/subtypes.pdf",
+       plot = p,
+       width = 5, height = 3)
+```

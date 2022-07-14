@@ -1,0 +1,58 @@
+---
+title: "Effect of mutation types on expression levels"
+author: "EXAMPLE"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Effect of mutation types on expression levels 
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/29148666", "data/mutation_types.csv")
+d_data <- read.csv("data/mutation_types.csv")
+```
+
+## start analysis
+
+## Use TP53 as a test case
+
+```{r}
+d_plot <- d_data %>% 
+         select(contains("TP53")) %>% 
+         filter(!TP53_substitution_category %in% c(NA, "splice-site")) %>% 
+         drop_na() %>% 
+         mutate("log10_TP53_expr" = log10(TP53_expr)) # explain to students purpose of transform
+
+p <- ggplot(data = d_plot, mapping = aes(x = TP53_substitution_category, 
+                                        y = log10_TP53_expr, 
+                                        fill = TP53_substitution_category)) +
+    geom_boxplot(outlier.shape = NA) +
+    geom_jitter(color = "black", alpha = 0.5) +
+    theme_bw() +
+    theme(legend.position = "none")
+```
+
+
+## save plot to "plots" directory
+
+Notes:
+* students would have created the "plots" directory in class
+* alternatively, create a different folder and change path below accordingly
+
+```{r}
+ggsave(filename = "plots/mutation_types.pdf",
+       plot = p,
+       width = 3, height = 3)
+```
+
+## Notes:
+## - if students finish early, allow them to make plots for the other genes
+

@@ -92,11 +92,10 @@ p <- ggsurvplot(fit,
                 palette = c("#E7B800", "#2E9FDF"))
 ```
 
+
 # save to directory
 
 ```{r}
-ggsave(filename = "plots/survival_TCGA_BLCA.pdf",
-       plot = print(p, newpage = F),
-       width = 3,
-       height = 3)
+ggsave(filename = "plots/survival_TCGA_BLCA.pdf", plot = p$plot)
 ```
+

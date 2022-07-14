@@ -53,6 +53,7 @@ p_scatter <- d_data %>%
   geom_smooth(method = 'lm', formula = y~x) +
   theme_classic() 
 
-ggsave("plots/scatter_cd8_gzmb.pdf"), p_scatter)
+ggsave("plots/scatter_cd8_gzmb.pdf", p_scatter)
 ``` 
+
 

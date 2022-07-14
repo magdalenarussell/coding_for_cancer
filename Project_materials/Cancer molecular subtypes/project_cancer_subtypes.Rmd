@@ -1,0 +1,29 @@
+---
+title: "Cancer Molecular Subtypes"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Cancer Molecular Subtypes
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/29126022", "data/subtypes.csv")
+d_data <- read.csv("data/subtypes.csv",
+                  col_types = cols(BRCA_subtype = col_character()))
+```
+
+## start analysis
+
+```{r}
+# your code here ...
+
+```
+

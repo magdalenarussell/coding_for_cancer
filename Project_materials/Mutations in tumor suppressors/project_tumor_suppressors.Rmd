@@ -1,0 +1,27 @@
+---
+title: "Tumor Suppressors"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Mutations in Tumor Suppressors 
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/30366351", "data/tumor_suppressor.csv")
+d_data <- read.csv("data/tumor_suppressor.csv") 
+```
+
+## start analysis
+
+```{r}
+# your code here ...
+
+```

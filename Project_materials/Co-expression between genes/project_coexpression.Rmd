@@ -1,0 +1,36 @@
+---
+title: "Co-expression between genes"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Co-expression between genes 
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/29228802", "data/coexpression.csv")
+d_data <- read.csv("data/coexpression.csv",
+                  col_types = cols(TP53_substitution = col_character(),
+                                   TP53_substitution_category = col_character()))
+```
+
+# load TP53 and RUNX target info
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/29229288", "data/coexpression_supplement.csv")
+d_targets <- read.csv("data/coexpression_supplement.csv")
+```
+
+## start analysis
+
+```{r}
+# your code here ...
+
+```

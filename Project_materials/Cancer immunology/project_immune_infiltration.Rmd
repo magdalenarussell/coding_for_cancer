@@ -1,0 +1,27 @@
+---
+title: "Cancer Immunology"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Cancer immunology--tumor-infiltrating lymphocytes 
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/30290958", "data/survival.csv")
+d_data <- read.csv("data/survival.csv") 
+```
+
+## start analysis
+
+```{r}
+# your code here ...
+
+```

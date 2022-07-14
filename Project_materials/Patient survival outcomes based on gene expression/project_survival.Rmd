@@ -1,0 +1,34 @@
+---
+title: "Patient Survival"
+date: '2022-06-15'
+output: html_document
+---
+
+# Project: Patient survival outcomes based on gene expression
+
+## Load necessary packages
+
+```{r}
+library("tidyverse")
+```
+
+## load dataset into RStudio
+
+Students have created the 'data' folder during the lessons
+Change path if new directory is created
+
+```{r}
+download.file("https://ndownloader.figshare.com/files/29163735", "data/survival.csv")
+d_data <- read.csv("data/survival.csv") 
+```
+
+## start analysis
+
+```{r}
+# your code here ...
+
+```
+
+
+
+

@@ -46,7 +46,8 @@ d_plot <- d_data %>%
     ))
 
 p <- ggplot(data = d_plot) +
-  geom_histogram(aes(x = TP53_aa_changed, fill = TP53_region), binwidth = 5)
+  geom_histogram(aes(x = TP53_aa_changed, fill = TP53_region), binwidth = 5) +
+  theme_bw()
 ```
 
 ## save plot to "plots" directory
@@ -58,5 +59,6 @@ Notes:
 ```{r}
 ggsave(filename = "plots/mutation_locations.pdf",
        plot = p,
-       width = 3, height = 3)
+       width = 7, height = 3)
 ```
+

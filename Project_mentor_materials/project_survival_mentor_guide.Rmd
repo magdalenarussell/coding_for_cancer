@@ -40,7 +40,7 @@ d_plot <- d_data %>%
          filter(sample_type == "Primary Tumor") %>% 
          mutate("log_EGFR_expr" = log10(EGFR_expr))
 
-percentiles <- quantile(d.plot$log_EGFR_expr, c(0.25, 0.75))
+percentiles <- quantile(d_plot$log_EGFR_expr, c(0.25, 0.75))
 
 p <- ggplot(d_plot, aes(x = log_EGFR_expr)) +
     geom_histogram(bins = 60, fill = "gray", color = "black") +
@@ -82,7 +82,7 @@ d_plot <- d_data %>%
          filter(project_id == "TCGA-BLCA") %>% 
          filter(sample_type == "Primary Tumor")
 
-fit <- survfit(Surv(time, status) ~ tercile_groups, data = d.plot)
+fit <- survfit(Surv(time, status) ~ tercile_groups, data = d_plot)
 
 p <- ggsurvplot(fit,
                 pval = TRUE, 

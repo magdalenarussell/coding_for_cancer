@@ -5,29 +5,74 @@ date: '2022-06-15'
 output: html_document
 ---
 
-# Part a: Practicing variables and math operations
+__Under each heading below, type your code and run it. Feel free to add notes and comments to help you learn.__ 
 
-## Instructions:
+__We recommend typing out the code over copying and pasting as figuring out where you made mistakes is a normal and key part of coding! Talk to an instructor if you get stuck. :)__
 
-## Write a code chunk to introduce yourself to those in the breakout room
-      * use a combo of character, numeric, integer, and logical data types
-      * feel free to be creative!
-      * use math operations (e.g. * or -) to modify your integer or numeric variables
-      * declare a variable and reassign later in your script
-      * try to assign at least 5 variables
 
-## Example:
+
+# Basic math (type below this line)
 
 ```{r}
-myname <- "maggie"
-fav_color <- false
-height_ft <- 5 + 8/12
-fav_color <- "green"
+# This is a code chunk!
+## [add 4 and 5 together using the "+" operator, just like in math class :)]
+
+# write your code here...
+
 ```
 
-## Note: consult the week 1 cheat sheet (or ask an instructor) if you have questions
+What is the answer? (be sure to run your code chunk) 
+
+
+# Assigning value to an object
 
 ```{r}
-# add your code here...
+weight_kg <- #[fill in here]
 
 ```
+
+# Recall object
+
+```{r}
+weight_kg
+
+```
+
+What was returned when you ran the previous code chunk?
+
+
+# Multiplication on an object (convert kg to lb)
+
+```{r}
+# [Multiply weight_kg by 2.2]
+
+
+```
+
+# Assign weight conversion to object
+
+```{r}
+# [copy your multiplication above and assign it to "weight_lb"]
+# (hint: see the assignment operator above)
+
+
+```
+
+
+# Reassign new value to an object
+
+```{r}
+weight_kg <- ## assign to one hundred
+
+
+```
+
+# Now, recall the `weight_kg` object
+
+```{r}
+weight_kg
+
+```
+
+What value was returned when you ran the above code chunk?
+
